@@ -1,7 +1,1 @@
-pod "LSSwipeToDeleteCollectionViewLayout", :path => "../LSSwipeToDeleteCollectionViewLayout.podspec"
-
-target "Demo" do
-end
-
-target "DemoTests" do
-end
+pod 'LSSwipeToDeleteCollectionViewLayout', :path => '../'
