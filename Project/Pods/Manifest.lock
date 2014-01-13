@@ -1,0 +1,14 @@
+PODS:
+  - LSSwipeToDeleteCollectionViewLayout (0.1.0)
+
+DEPENDENCIES:
+  - LSSwipeToDeleteCollectionViewLayout (from `../`)
+
+EXTERNAL SOURCES:
+  LSSwipeToDeleteCollectionViewLayout:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LSSwipeToDeleteCollectionViewLayout: e5f19abbae93411b432e7ccebbe4c49e34f9d808
+
+COCOAPODS: 0.29.0
