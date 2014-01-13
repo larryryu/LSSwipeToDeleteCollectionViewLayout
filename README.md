@@ -6,14 +6,10 @@
 ## Screenshots
 
 <!-- Github -->
-Dragging
 <img src="https://raw.github.com/larryryu/LSSwipeToDeleteCollectionViewLayout/master/Screenshots/Dragging.png" alt="Dragging" height="960" width="640" />
-Release
-<img src="https://raw.github.com/larryryu/LSSwipeToDeleteCollectionViewLayout/master/Screenshots/Release.png" alt="Release" height="960" width="640" />
 
 <!-- Local -->
 <!-- <img src="Screenshots/Dragging.png" alt="Dragging" height="960" width="640" /> -->
-<!-- <img src="Screenshots/Release.png" alt="Release" height="960" width="640" /> -->
 
 ## Usage
 
