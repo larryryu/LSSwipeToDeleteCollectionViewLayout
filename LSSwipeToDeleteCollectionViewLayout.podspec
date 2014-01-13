@@ -1,8 +1,8 @@
 
 Pod::Spec.new do |s|
-  s.name         = "LSSwipeToDeleteCollectionViewLayout"
-  s.version      = "0.1.0"
-  s.summary      = "The UICollectionViewLayout subclass adds swipe to delete functionality to a collectionview"
+  s.name         = 'LSSwipeToDeleteCollectionViewLayout'
+  s.version      = '0.1.0'
+  s.summary      = 'The UICollectionViewLayout subclass adds swipe to delete functionality to a collectionview'
  
   s.license      = 'MIT'
   s.author       = { 'Lukman Sanusi' => 'lanresanusi@me.com' }
