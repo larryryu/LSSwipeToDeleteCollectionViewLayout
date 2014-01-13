@@ -3,6 +3,16 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/LSSwipeToDeleteCollectionViewLayout/badge.png)](http://cocoadocs.org/docsets/LSSwipeToDeleteCollectionViewLayout)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/LSSwipeToDeleteCollectionViewLayout/badge.png)](http://cocoadocs.org/docsets/LSSwipeToDeleteCollectionViewLayout)
 
+## Screenshots
+
+<!-- Github -->
+<img src="https://raw.github.com/larryryu/LSSwipeToDeleteCollectionViewLayout/master/Screenshots/Dragging.png" alt="Dragging" height="960" width="640" />
+<img src="https://raw.github.com/larryryu/LSSwipeToDeleteCollectionViewLayout/master/Screenshots/Release.png" alt="Release" height="960" width="640" />
+
+<!-- Local -->
+<!-- <img src="Screenshots/Dragging.png" alt="Dragging" height="960" width="640" /> -->
+<!-- <img src="Screenshots/Release.png" alt="Release" height="960" width="640" /> -->
+
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
