@@ -52,7 +52,7 @@ static NSString *LSCollectionViewCellIdentifier = @"Cell";
 }
 
 -(void)resetColors{
-    colors = @[[UIColor redColor], [UIColor clearColor], [UIColor orangeColor], [UIColor greenColor], [UIColor redColor], [UIColor blueColor], [UIColor orangeColor], [UIColor greenColor], [UIColor redColor], [UIColor blueColor], [UIColor orangeColor], [UIColor greenColor]].mutableCopy;
+    colors = @[[UIColor redColor], [UIColor purpleColor], [UIColor orangeColor], [UIColor greenColor], [UIColor redColor], [UIColor blueColor], [UIColor orangeColor], [UIColor greenColor], [UIColor redColor], [UIColor blueColor], [UIColor orangeColor], [UIColor greenColor]].mutableCopy;
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event

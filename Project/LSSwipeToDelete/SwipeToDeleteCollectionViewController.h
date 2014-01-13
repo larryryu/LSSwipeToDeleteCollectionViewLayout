@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LSSwipeToDeleteCollectionViewLayout.h"
+#import <LSSwipeToDeleteCollectionViewLayout.h>
 
 @interface SwipeToDeleteCollectionViewController : UIViewController <LSSwipeToDeleteCollectionViewLayoutDelegate>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
