@@ -1,9 +1,4 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
+
 Pod::Spec.new do |s|
   s.name         = "LSSwipeToDeleteCollectionViewLayout"
   s.version      = "0.1.0"
@@ -15,13 +10,11 @@ Pod::Spec.new do |s|
                     * Don't worry about the indent, we strip it!
                    DESC
   s.license      = 'MIT'
-  s.author       = { "Lukman Sanusi" => "lanresanusi@me.com" }
-  s.source       = { :git => "https://github.com/larryryu/LSSwipeToDeleteCollectionViewLayout.git", :tag => s.version.to_s }
+  s.author       = { 'Lukman Sanusi' => 'lanresanusi@me.com' }
+  s.source       = { :git => 'https://github.com/larryryu/LSSwipeToDeleteCollectionViewLayout.git', :tag => s.version.to_s }
 
-  # s.platform     = :ios, '5.0'
+  s.platform     = :ios, '5.0'
   s.requires_arc = true
 
-  s.source_files = 'Classes'
-
-  # s.public_header_files = 'Classes/**/*.h'
+  s.source_files = 'LSSwipeToDeleteCollectionViewLayout/*.{h,m}'
 end
