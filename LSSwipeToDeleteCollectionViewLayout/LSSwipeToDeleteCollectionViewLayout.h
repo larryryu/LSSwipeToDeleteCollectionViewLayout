@@ -49,15 +49,15 @@ static const CGFloat LSSwipeToDeleteCollectionViewLayoutDefaultDeletionVelocityT
 
 @protocol LSSwipeToDeleteCollectionViewLayoutDelegate <NSObject>
 /* required method. The datasoures need to remove the object at the specified indexPath */ 
--(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didDeleteAttributesAtIndexPath:(NSIndexPath *)indexPath;
+-(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didDeleteCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 /* return YES to allow the for deletion of the indexPath. Default is YES */
--(BOOL)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout canDeleteAttributesAtIndexPath:(NSIndexPath *)indexPath;
+-(BOOL)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout canDeleteCellAtIndexPath:(NSIndexPath *)indexPath;
 /* Called just after the pan to delete gesture is recognised with a proposed item for deletion. */
--(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout willBeginDraggingAttributesAtIndexPath:(NSIndexPath *)indexPath;
+-(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout willBeginDraggingCellAtIndexPath:(NSIndexPath *)indexPath;
 /* Called just after the user lift the finger and right before the deletion/restoration animation begins. */
--(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout willEndDraggingAttributesAtIndexPath:(NSIndexPath *)indexPath willDeleteAttribute:(BOOL)willDelete;
+-(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout willEndDraggingCellAtIndexPath:(NSIndexPath *)indexPath willDeleteCell:(BOOL)willDelete;
 /* Called just after the deletion/restoration animation ended. */
--(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didEndAnimationWithAttributesAtIndexPath:(NSIndexPath *)indexPath didDeleteAttribute:(BOOL)didDelete;
+-(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didEndAnimationWithCellAtIndexPath:(NSIndexPath *)indexPath didDeleteCell:(BOOL)didDelete;
 @end

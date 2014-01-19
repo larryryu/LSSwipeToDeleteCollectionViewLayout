@@ -184,15 +184,15 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             panGesturetranslation = [gesture translationInView:[gesture view]];
             CGPoint currentPoint = [gesture locationInView:[gesture view]];
             NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:currentPoint];
-            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:canDeleteAttributesAtIndexPath:)]) {
-                if (![self.swipeToDeleteDelegate swipeToDeleteLayout:self canDeleteAttributesAtIndexPath:indexPath]) {
+            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:canDeleteCellAtIndexPath:)]) {
+                if (![self.swipeToDeleteDelegate swipeToDeleteLayout:self canDeleteCellAtIndexPath:indexPath]) {
                     return;
                 }
             }
             selectedIndexPath = indexPath;
             
-            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willBeginDraggingAttributesAtIndexPath:)]) {
-                [self.swipeToDeleteDelegate swipeToDeleteLayout:self willBeginDraggingAttributesAtIndexPath:selectedIndexPath];
+            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willBeginDraggingCellAtIndexPath:)]) {
+                [self.swipeToDeleteDelegate swipeToDeleteLayout:self willBeginDraggingCellAtIndexPath:selectedIndexPath];
             }
             
             [self invalidateLayout];
@@ -217,15 +217,15 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             userTriggerredSwipeToDeleteDirection = [self deletionDirectionWithGestureRecogniser:gesture];
             BOOL shouldDelete = (userTriggerredSwipeToDeleteDirection != LSSwipeToDeleteDirectionNone);
             
-            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willEndDraggingAttributesAtIndexPath:willDeleteAttribute:)]) {
-                [self.swipeToDeleteDelegate swipeToDeleteLayout:self willEndDraggingAttributesAtIndexPath:selectedIndexPath willDeleteAttribute:shouldDelete];
+            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willEndDraggingCellAtIndexPath:willDeleteCell:)]) {
+                [self.swipeToDeleteDelegate swipeToDeleteLayout:self willEndDraggingCellAtIndexPath:selectedIndexPath willDeleteCell:shouldDelete];
                 [self clearSelectedIndexPaths];
             }
             
             void (^completionBlock)(BOOL finished) = ^(BOOL finished){
                 if (finished) {
-                    if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:didEndAnimationWithAttributesAtIndexPath:didDeleteAttribute:)]) {
-                        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didEndAnimationWithAttributesAtIndexPath:selectedIndexPath didDeleteAttribute:shouldDelete];
+                    if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:didEndAnimationWithCellAtIndexPath:didDeleteCell:)]) {
+                        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didEndAnimationWithCellAtIndexPath:selectedIndexPath didDeleteCell:shouldDelete];
                     }
                     selectedIndexPath = nil;
                     userTriggerredSwipeToDeleteDirection = LSSwipeToDeleteDirectionNone;
@@ -274,7 +274,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
     }  completion:^(BOOL finished) {
         self.state = LSSwipeToDeleteLayoutStateDeleting;
         NSAssert(self.swipeToDeleteDelegate, @"No delegate found");
-        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didDeleteAttributesAtIndexPath:selectedIndexPath];
+        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didDeleteCellAtIndexPath:selectedIndexPath];
         [self clearSelectedIndexPaths];
         
         [self.collectionView performBatchUpdates:^{

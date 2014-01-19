@@ -100,7 +100,7 @@ static NSString *LSCollectionViewCellIdentifier = @"Cell";
 
 #pragma mark - LSSwipeToDeleteLayoutDelegate
 
--(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didDeleteAttributesAtIndexPath:(NSIndexPath *)indexPath{
+-(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didDeleteCellAtIndexPath:(NSIndexPath *)indexPath{
     [colors removeObjectAtIndex:indexPath.row];
 }
 
