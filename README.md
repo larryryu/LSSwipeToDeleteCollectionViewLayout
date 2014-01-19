@@ -1,8 +1,5 @@
 # LSSwipeToDeleteCollectionViewLayout
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/LSSwipeToDeleteCollectionViewLayout/badge.png)](http://cocoadocs.org/docsets/LSSwipeToDeleteCollectionViewLayout)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/LSSwipeToDeleteCollectionViewLayout/badge.png)](http://cocoadocs.org/docsets/LSSwipeToDeleteCollectionViewLayout)
-
 ## Screenshots
 
 <!-- Github -->
