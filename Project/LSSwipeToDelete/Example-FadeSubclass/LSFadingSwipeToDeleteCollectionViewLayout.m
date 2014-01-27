@@ -23,7 +23,7 @@ static CGFloat easingDisplacementFade(CGFloat ratio) {
     if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
         CGFloat middle = initialCenter.y;
         CGFloat displacementRatio = (center.y <= middle? (center.y/middle): ((middle - (center.y - middle))/middle));
-        CGFloat alpha = fmaxf(pow(kFadeConstant,displacementRatio)/kFadeConstant, 0.01f);
+        CGFloat alpha = easingDisplacementFade(displacementRatio);
         attributes.alpha = alpha;
     }
     else {
