@@ -115,12 +115,14 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
     if ([attributes.indexPath isEqual:selectedIndexPath]) {
-        [self applySelectedAttributes:attributes];
+        CGPoint center = attributes.center;
+        [self applySelectedStateToAttributes:attributes];
+        [self didDisplaceSelectedAttributes:attributes withInitialCenter:center];
     }
     return attributes;
 }
 
--(void)applySelectedAttributes:(UICollectionViewLayoutAttributes *)attributes{
+-(void)applySelectedStateToAttributes:(UICollectionViewLayoutAttributes *)attributes{
     CGPoint center = attributes.center;
     
     CGFloat minCenterX = center.x;
@@ -149,6 +151,10 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
     }
     
     attributes.center = center;
+}
+
+- (void)didDisplaceSelectedAttributes:(UICollectionViewLayoutAttributes *)attributes withInitialCenter:(CGPoint)initialCenter{
+    
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath

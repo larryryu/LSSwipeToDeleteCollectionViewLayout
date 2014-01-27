@@ -45,6 +45,8 @@ static const CGFloat LSSwipeToDeleteCollectionViewLayoutDefaultDeletionVelocityT
 @property (nonatomic, assign) LSSwipeToDeleteDirection swipeToDeleteDirection;
 @property (nonatomic, assign) id <LSSwipeToDeleteCollectionViewLayoutDelegate> swipeToDeleteDelegate;
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecognizer;
+/* You can overide this method in a subclass to add extra effects to the cell that is being swiped for deletion */
+- (void)didDisplaceSelectedAttributes:(UICollectionViewLayoutAttributes *)attributes withInitialCenter:(CGPoint)initialCenter;
 @end
 
 @protocol LSSwipeToDeleteCollectionViewLayoutDelegate <NSObject>
