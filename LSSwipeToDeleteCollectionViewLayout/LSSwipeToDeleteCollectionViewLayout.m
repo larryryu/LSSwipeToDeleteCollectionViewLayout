@@ -428,6 +428,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 
 - (void)dealloc {
     [self removeObserver:self forKeyPath:kLSCollectionViewKeyPath];
+    [_panGestureRecognizer removeObserver:self forKeyPath:@"delegate"];
 }
 
 @end
