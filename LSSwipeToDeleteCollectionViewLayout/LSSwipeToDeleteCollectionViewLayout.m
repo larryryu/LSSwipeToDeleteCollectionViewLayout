@@ -209,6 +209,12 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
         {
             if (!selectedIndexPath) return;
             panGesturetranslation = [gesture translationInView:[gesture view]];
+            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:cellPanGestureDidMoveToPoint:)]) {
+                
+                [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellPanGestureDidMoveToPoint:panGesturetranslation];
+            }
+            
+            
             [self invalidateLayout];
             break;
         }
