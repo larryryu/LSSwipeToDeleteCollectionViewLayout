@@ -210,7 +210,11 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             if (!selectedIndexPath) return;
             panGesturetranslation = [gesture translationInView:[gesture view]];
             if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:cellDidTranslateWithOffset:)]) {
-                [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellDidTranslateWithOffset:UIOffsetMake(panGesturetranslation.x, panGesturetranslation.y)];
+                UICollectionViewLayoutAttributes *unselectedAttribute = [super layoutAttributesForItemAtIndexPath:selectedIndexPath];
+                UICollectionViewLayoutAttributes *selectedAttribute = [self layoutAttributesForItemAtIndexPath:selectedIndexPath];
+                UIOffset offset = UIOffsetMake(selectedAttribute.center.x - unselectedAttribute.center.x, selectedAttribute.center.y - unselectedAttribute.center.y);
+                
+                [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellDidTranslateWithOffset:offset];
             }
             
             
@@ -248,6 +252,14 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             }else{
                 NSArray *indexPathsToDelete = @[selectedIndexPath];
                 [self performSwipeToDeleteForCellsAtIndexPaths:indexPathsToDelete withCompletion:completionBlock];
+            }
+            
+            if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:cellDidTranslateWithOffset:)]) {
+                UICollectionViewLayoutAttributes *unselectedAttribute = [super layoutAttributesForItemAtIndexPath:selectedIndexPath];
+                UICollectionViewLayoutAttributes *selectedAttribute = [self layoutAttributesForItemAtIndexPath:selectedIndexPath];
+                UIOffset offset = UIOffsetMake(selectedAttribute.center.x - unselectedAttribute.center.x, selectedAttribute.center.y - unselectedAttribute.center.y);
+                
+                [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellDidTranslateWithOffset:offset];
             }
             
             break;
