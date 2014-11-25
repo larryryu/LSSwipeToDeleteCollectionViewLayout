@@ -252,7 +252,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
                 }
             };
             
-            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || fabs(panGesturetranslation.y) < self.deletionDistanceTresholdValue ) {
+            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || fabs(panGesturetranslation.y) < self.deletionDistanceTresholdValue || [self velocityMagnitude] < self.deletionVelocityTresholdValue) {
                 [self cancelSwipeToDeleteWithCompletion:completionBlock];
             }else{
                 NSArray *indexPathsToDelete = @[selectedIndexPath];
