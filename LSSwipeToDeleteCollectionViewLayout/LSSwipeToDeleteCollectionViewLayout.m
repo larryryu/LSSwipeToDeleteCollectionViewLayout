@@ -249,7 +249,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
                 }
             };
             
-            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || fabs(panGesturetranslation.y) < self.deletionDistanceTresholdValue || [self velocityMagnitude] < self.deletionVelocityTresholdValue) {
+            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || [self translationValue] < self.deletionDistanceTresholdValue || [self velocityMagnitude] < self.deletionVelocityTresholdValue || [self velocity] > 0) {
                 [self cancelSwipeToDeleteWithCompletion:completionBlock];
             }else{
                 NSArray *indexPathsToDelete = @[selectedIndexPath];
@@ -382,6 +382,11 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 
 -(CGFloat)velocityMagnitude{
     
+    return fabsf([self velocity]);
+}
+
+-(CGFloat)velocity{
+    
     CGPoint velocity = [self.panGestureRecognizer velocityInView:[self.panGestureRecognizer view]];
     CGFloat velocityValue = 0.0f;
     
@@ -390,8 +395,8 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
     }else if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal){
         velocityValue = velocity.y;
     }
+    return velocityValue;
     
-    return fabsf(velocityValue);
 }
 
 -(LSSwipeToDeleteDirection)swipeToDeleteDirectionFromValue:(CGPoint)value{
