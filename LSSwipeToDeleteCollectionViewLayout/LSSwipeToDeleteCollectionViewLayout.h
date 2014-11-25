@@ -62,6 +62,6 @@ static const CGFloat LSSwipeToDeleteCollectionViewLayoutDefaultDeletionVelocityT
 -(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout willEndDraggingCellAtIndexPath:(NSIndexPath *)indexPath willDeleteCell:(BOOL)willDelete;
 /* Called just after the deletion/restoration animation ended. */
 -(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout didEndAnimationWithCellAtIndexPath:(NSIndexPath *)indexPath didDeleteCell:(BOOL)didDelete;
-/* Provides the current point of the pan gesture received on the cell. 0,0 is the original center of the cell and the coordinate system follows the UIView coordinate system */
+/* Provides the current point of the pan gesture received on the cell. 0,0 is the original center of the cell and the coordinate system follows the UIView coordinate system. You may also use the panGestureRecognizer property to get extract more information about the interaction */
 -(void)swipeToDeleteLayout:(LSSwipeToDeleteCollectionViewLayout *)layout cellDidTranslateWithOffset:(UIOffset)offset;
 @end
