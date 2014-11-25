@@ -73,9 +73,14 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 }
 
 - (void)setupCollectionView {
-    _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-    [_panGestureRecognizer addObserver:self forKeyPath:@"delegate" options:NSKeyValueObservingOptionNew context:nil];
-    _panGestureRecognizer.delegate = self;
+    
+    if(_panGestureRecognizer == nil){
+        
+        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        [_panGestureRecognizer addObserver:self forKeyPath:@"delegate" options:NSKeyValueObservingOptionNew context:nil];
+        _panGestureRecognizer.delegate = self;
+        
+    }
     
     for (UIGestureRecognizer *gestureRecognizer in self.collectionView.gestureRecognizers) {
         if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
@@ -183,6 +188,10 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)gesture{
     
+    if(self.collectionView.allowsSelection == NO){
+        return;
+    }
+    
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -230,7 +239,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             
             if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willEndDraggingCellAtIndexPath:willDeleteCell:)]) {
                 [self.swipeToDeleteDelegate swipeToDeleteLayout:self willEndDraggingCellAtIndexPath:selectedIndexPath willDeleteCell:shouldDelete];
-                [self clearSelectedIndexPaths];
+                //                [self clearSelectedIndexPaths];
             }
             
             void (^completionBlock)(BOOL finished) = ^(BOOL finished){
@@ -243,7 +252,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
                 }
             };
             
-            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled) {
+            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || fabs(panGesturetranslation.y) < self.deletionDistanceTresholdValue ) {
                 [self cancelSwipeToDeleteWithCompletion:completionBlock];
             }else{
                 NSArray *indexPathsToDelete = @[selectedIndexPath];
@@ -299,6 +308,10 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
 
 -(void)cancelSwipeToDeleteWithCompletion:(void (^)(BOOL finished))completionBlock{
     [self.panGestureRecognizer setEnabled:NO];
+    if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:cellDidTranslateWithOffset:)]) {
+        [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellDidTranslateWithOffset:UIOffsetMake(0, 0)];
+    }
+    
     self.state = LSSwipeToDeleteLayoutStateTransitionToStart;
     [self clearSelectedIndexPaths];
     [self.collectionView performBatchUpdates:nil

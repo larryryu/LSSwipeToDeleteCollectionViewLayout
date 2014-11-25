@@ -17,24 +17,9 @@
 		46538461187FA8EA006E86D1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4653845F187FA8EA006E86D1 /* Main_iPhone.storyboard */; };
 		46538464187FA8EA006E86D1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46538462187FA8EA006E86D1 /* Main_iPad.storyboard */; };
 		46538469187FA8EA006E86D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46538468187FA8EA006E86D1 /* Images.xcassets */; };
-		46538470187FA8EA006E86D1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4653846F187FA8EA006E86D1 /* XCTest.framework */; };
-		46538471187FA8EA006E86D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4653844D187FA8EA006E86D1 /* Foundation.framework */; };
-		46538472187FA8EA006E86D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46538451187FA8EA006E86D1 /* UIKit.framework */; };
-		4653847A187FA8EA006E86D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46538478187FA8EA006E86D1 /* InfoPlist.strings */; };
-		4653847C187FA8EA006E86D1 /* LSSwipeToDeleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4653847B187FA8EA006E86D1 /* LSSwipeToDeleteTests.m */; };
 		4653848A187FAE15006E86D1 /* SwipeToDeleteCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46538489187FAE15006E86D1 /* SwipeToDeleteCollectionViewController.m */; };
 		D5DD10BF1896400D006E65AF /* LSFadingSwipeToDeleteCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DD10BE1896400D006E65AF /* LSFadingSwipeToDeleteCollectionViewLayout.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		46538473187FA8EA006E86D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 46538442187FA8E9006E86D1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 46538449187FA8EA006E86D1;
-			remoteInfo = LSSwipeToDelete;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C5198C00F5F42A0ACFA6638 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -51,7 +36,6 @@
 		46538460187FA8EA006E86D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		46538463187FA8EA006E86D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		46538468187FA8EA006E86D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4653846E187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSSwipeToDeleteCollectionViewLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4653846F187FA8EA006E86D1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		46538477187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LSSwipeToDeleteCollectionViewLayoutTests-Info.plist"; sourceTree = "<group>"; };
 		46538479187FA8EA006E86D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -75,16 +59,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4653846B187FA8EA006E86D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46538470187FA8EA006E86D1 /* XCTest.framework in Frameworks */,
-				46538472187FA8EA006E86D1 /* UIKit.framework in Frameworks */,
-				46538471187FA8EA006E86D1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -103,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				4653844A187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayout.app */,
-				4653846E187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,24 +169,6 @@
 			productReference = 4653844A187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayout.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4653846D187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46538482187FA8EA006E86D1 /* Build configuration list for PBXNativeTarget "LSSwipeToDeleteCollectionViewLayoutTests" */;
-			buildPhases = (
-				4653846A187FA8EA006E86D1 /* Sources */,
-				4653846B187FA8EA006E86D1 /* Frameworks */,
-				4653846C187FA8EA006E86D1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				46538474187FA8EA006E86D1 /* PBXTargetDependency */,
-			);
-			name = LSSwipeToDeleteCollectionViewLayoutTests;
-			productName = LSSwipeToDeleteTests;
-			productReference = 4653846E187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,11 +177,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Lukman Sanusi";
-				TargetAttributes = {
-					4653846D187FA8EA006E86D1 = {
-						TestTargetID = 46538449187FA8EA006E86D1;
-					};
-				};
 			};
 			buildConfigurationList = 46538445187FA8E9006E86D1 /* Build configuration list for PBXProject "LSSwipeToDeleteCollectionViewLayout" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -242,7 +192,6 @@
 			projectRoot = "";
 			targets = (
 				46538449187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayout */,
-				4653846D187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,14 +205,6 @@
 				46538469187FA8EA006E86D1 /* Images.xcassets in Resources */,
 				46538461187FA8EA006E86D1 /* Main_iPhone.storyboard in Resources */,
 				46538458187FA8EA006E86D1 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4653846C187FA8EA006E86D1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4653847A187FA8EA006E86D1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,23 +255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4653846A187FA8EA006E86D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4653847C187FA8EA006E86D1 /* LSSwipeToDeleteTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		46538474187FA8EA006E86D1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 46538449187FA8EA006E86D1 /* LSSwipeToDeleteCollectionViewLayout */;
-			targetProxy = 46538473187FA8EA006E86D1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		46538456187FA8EA006E86D1 /* InfoPlist.strings */ = {
@@ -470,48 +395,6 @@
 			};
 			name = Release;
 		};
-		46538483187FA8EA006E86D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LSSwipeToDelete.app/LSSwipeToDelete";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LSSwipeToDelete/LSSwipeToDelete-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "LSSwipeToDeleteTests/LSSwipeToDeleteCollectionViewLayoutTests-Info.plist";
-				PRODUCT_NAME = LSSwipeToDeleteCollectionViewLayoutTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		46538484187FA8EA006E86D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LSSwipeToDelete.app/LSSwipeToDelete";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LSSwipeToDelete/LSSwipeToDelete-Prefix.pch";
-				INFOPLIST_FILE = "LSSwipeToDeleteTests/LSSwipeToDeleteCollectionViewLayoutTests-Info.plist";
-				PRODUCT_NAME = LSSwipeToDeleteCollectionViewLayoutTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -529,15 +412,6 @@
 			buildConfigurations = (
 				46538480187FA8EA006E86D1 /* Debug */,
 				46538481187FA8EA006E86D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		46538482187FA8EA006E86D1 /* Build configuration list for PBXNativeTarget "LSSwipeToDeleteCollectionViewLayoutTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				46538483187FA8EA006E86D1 /* Debug */,
-				46538484187FA8EA006E86D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
