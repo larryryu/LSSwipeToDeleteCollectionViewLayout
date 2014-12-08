@@ -238,10 +238,13 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
                 [self.swipeToDeleteDelegate swipeToDeleteLayout:self willEndDraggingCellAtIndexPath:selectedIndexPath willDeleteCell:shouldDelete];
             }
             
+            __weak __typeof(self)weakSelf = self;
+            
             void (^completionBlock)(BOOL finished) = ^(BOOL finished){
                 if (finished) {
-                    if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:didEndAnimationWithCellAtIndexPath:didDeleteCell:)]) {
-                        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didEndAnimationWithCellAtIndexPath:selectedIndexPath didDeleteCell:shouldDelete];
+                    __typeof(weakSelf)strongSelf = weakSelf;
+                    if ([strongSelf.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:didEndAnimationWithCellAtIndexPath:didDeleteCell:)]) {
+                        [strongSelf.swipeToDeleteDelegate swipeToDeleteLayout:strongSelf didEndAnimationWithCellAtIndexPath:selectedIndexPath didDeleteCell:shouldDelete];
                     }
                     selectedIndexPath = nil;
                     userTriggerredSwipeToDeleteDirection = LSSwipeToDeleteDirectionNone;
@@ -297,19 +300,27 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
     [self.panGestureRecognizer setEnabled:NO];
     self.state = LSSwipeToDeleteLayoutStateTransitionToEnd;
     
+    __weak __typeof(self)weakSelf = self;
+    
     [self.collectionView performBatchUpdates:^{
         
     }  completion:^(BOOL finished) {
-        self.state = LSSwipeToDeleteLayoutStateDeleting;
-        NSAssert(self.swipeToDeleteDelegate, @"No delegate found");
-        [self.swipeToDeleteDelegate swipeToDeleteLayout:self didDeleteCellAtIndexPath:selectedIndexPath];
-        [self clearSelectedIndexPaths];
         
-        [self.collectionView performBatchUpdates:^{
-            [self.collectionView deleteItemsAtIndexPaths:indexPathsToDelete];
+        __typeof(weakSelf)strongSelf = weakSelf;
+        
+        strongSelf.state = LSSwipeToDeleteLayoutStateDeleting;
+        NSAssert(strongSelf.swipeToDeleteDelegate, @"No delegate found");
+        [strongSelf.swipeToDeleteDelegate swipeToDeleteLayout:strongSelf didDeleteCellAtIndexPath:selectedIndexPath];
+        [strongSelf clearSelectedIndexPaths];
+        
+        [strongSelf.collectionView performBatchUpdates:^{
+            __typeof(weakSelf)strongSelf = weakSelf;
+            [strongSelf.collectionView deleteItemsAtIndexPaths:indexPathsToDelete];
         }  completion:^(BOOL finished) {
+            __typeof(weakSelf)strongSelf = weakSelf;
+            
             if (completionBlock) completionBlock(finished);
-            [self.panGestureRecognizer setEnabled:YES];
+            [strongSelf.panGestureRecognizer setEnabled:YES];
         }];
     }];
 }
@@ -320,13 +331,16 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
         [self.swipeToDeleteDelegate swipeToDeleteLayout:self cellDidTranslateWithOffset:UIOffsetMake(0, 0)];
     }
     
+    __weak __typeof(self)weakSelf = self;
+    
     self.state = LSSwipeToDeleteLayoutStateTransitionToStart;
     [self clearSelectedIndexPaths];
     [self.collectionView performBatchUpdates:nil
                                   completion:^(BOOL finished) {
+                                      __typeof(weakSelf)strongSelf = weakSelf;
                                       if (completionBlock) completionBlock(finished);
-                                      self.state = LSSwipeToDeleteLayoutStateNone;
-                                      [self.panGestureRecognizer setEnabled:YES];
+                                      strongSelf.state = LSSwipeToDeleteLayoutStateNone;
+                                      [strongSelf.panGestureRecognizer setEnabled:YES];
                                   }];
 }
 
