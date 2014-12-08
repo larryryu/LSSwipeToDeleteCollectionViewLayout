@@ -236,7 +236,6 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             
             if ([self.swipeToDeleteDelegate respondsToSelector:@selector(swipeToDeleteLayout:willEndDraggingCellAtIndexPath:willDeleteCell:)]) {
                 [self.swipeToDeleteDelegate swipeToDeleteLayout:self willEndDraggingCellAtIndexPath:selectedIndexPath willDeleteCell:shouldDelete];
-                //                [self clearSelectedIndexPaths];
             }
             
             void (^completionBlock)(BOOL finished) = ^(BOOL finished){
@@ -249,7 +248,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
                 }
             };
             
-            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled || [self translationValue] < self.deletionDistanceTresholdValue || [self velocityMagnitude] < self.deletionVelocityTresholdValue || [self velocity] > 0) {
+            if (!shouldDelete || gesture.state == UIGestureRecognizerStateFailed || gesture.state == UIGestureRecognizerStateCancelled) {
                 [self cancelSwipeToDeleteWithCompletion:completionBlock];
             }else{
                 NSArray *indexPathsToDelete = @[selectedIndexPath];
