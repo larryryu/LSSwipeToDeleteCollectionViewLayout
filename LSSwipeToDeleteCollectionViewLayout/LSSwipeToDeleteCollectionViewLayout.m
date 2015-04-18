@@ -380,12 +380,12 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
         tranlationValue = panGesturetranslation.y;
     }
     
-    return fabsf(tranlationValue);
+    return fabs(tranlationValue);
 }
 
 -(CGFloat)velocityMagnitude{
     
-    return fabsf([self velocity]);
+    return fabs([self velocity]);
 }
 
 -(CGFloat)velocity{
