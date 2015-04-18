@@ -162,16 +162,6 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
     
 }
 
-- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
-{
-    return [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-}
-
-- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
-{
-    return [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-}
-
 #pragma mark - Gesture Recogniser
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
