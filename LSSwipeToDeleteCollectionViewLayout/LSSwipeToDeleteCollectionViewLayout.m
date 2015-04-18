@@ -455,9 +455,7 @@ static NSString * const kLSCollectionViewKeyPath = @"collectionView";
             [self setupCollectionView];
         }
     }else if ([keyPath isEqualToString:@"delegate"] && [object isEqual:self.panGestureRecognizer]){
-        NSString *message = @"The delegate of the PanGestureRecogniser must be the layout object";
-        id newDelegate = [change objectForKey:NSKeyValueChangeNewKey];
-        NSAssert([newDelegate isEqual:self], message);
+        NSAssert([[change objectForKey:NSKeyValueChangeNewKey] isEqual:self], @"The delegate of the PanGestureRecogniser must be the layout object");
     }
 }
 
